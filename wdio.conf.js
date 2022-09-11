@@ -3,20 +3,31 @@ const allure = require('allure-commandline')
 const video = require('wdio-video-reporter');
 
 exports.config = {
-    hostname: 'localhost',
-    port: 4723,
-    path: '/wd/hub',
+    //hostname: 'localhost',
+    //port: 4723,
+    //path: '/wd/hub',
+    user: "patriciaarago_vr1d25",
+    key: "3LTzGFYBUS9x9VeZcdwU",
+    //services: ['appium'],
+    services: ['browserstack'],
     specs: [
         './test/specs/**/*.spec.js'
     ],
     framework: 'mocha',
     capabilities: [{
         "platformName": "Android",
-        "platformVersion": "12.0",
-        "deviceName": "ebac-qe",
-        "automationName": "UiAutomator2",
-        "app": join(process.cwd(), './app/android/loja-ebac.apk'),
-        "appWaitActivity": "com.woocommerce.android/.ui.login.LoginActivity"
+        //"platformVersion": "12.0",
+        //"deviceName": "ebac-qe",
+        //"automationName": "UiAutomator2",
+        //"app": join(process.cwd(), './app/android/loja-ebac.apk'),
+        //"appWaitActivity": "com.woocommerce.android/.ui.login.LoginActivity"
+
+        project: "Meu primeiro projeto em Device Farm",
+        build: "1",
+        name: "test_login",
+        device: "Samsung Galaxy S8 Plus",
+        os_version: "9.0",
+        app: 'bs://506de1b85c7f926d5c7eaa7e6fda09ca81211d44',
     }],
     waitForTimeout: 20000,
     mochaOpts:{
